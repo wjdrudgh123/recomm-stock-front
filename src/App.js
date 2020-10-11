@@ -13,6 +13,7 @@ class App extends React.Component {
     console.log("start");
     const { data } = await axios.get("https://recomstock.herokuapp.com/data", {
       timeout: 300000,
+      withCredentials: "include",
     });
     console.log(data);
     this.setState({ isLoading: false, companies: data });
