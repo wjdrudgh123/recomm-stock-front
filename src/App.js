@@ -11,7 +11,7 @@ class App extends React.Component {
 
   getLists = async () => {
     console.log("start");
-    const { data } = await axios.get("http://localhost:5000/data", {
+    const { data } = await axios.get("https://recomstock.herokuapp.com/data", {
       timeout: 300000,
     });
     console.log(data);
