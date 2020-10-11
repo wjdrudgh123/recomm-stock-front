@@ -16,10 +16,9 @@ class App extends React.Component {
       `http://${process.env.REACT_APP_IP}/data`,
       {
         timeout: 300000,
-        //withCredentials: "include",
+        withCredentials: "include",
       }
     );
-    console.log(data);
     this.setState({ isLoading: false, companies: data });
   };
 
