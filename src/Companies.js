@@ -13,6 +13,8 @@ const pop = (event) => {
 };
 
 const Companies = ({ name, news }) => {
+  console.log(name);
+  console.log(news);
   return (
     <div className="companies">
       <div className="companies__company">
@@ -22,8 +24,12 @@ const Companies = ({ name, news }) => {
         </div>
         <ul className="company__news">
           {news.map(({ title, description, link }, index) => {
+            const splitLink = link.split("/");
+            const getNewWord = splitLink[4].split("#");
+            const newsLink = `${getNewWord[0]}/${getNewWord[1]}/${splitLink[5]}/${splitLink[6]}`;
+            console.log(`http://m.finance.daum.net/quotes/${newsLink}`);
             const goLink = () => {
-              document.location.href = link;
+              document.location.href = `http://m.finance.daum.net/quotes/${newsLink}`;
             };
             return (
               <li className="news" key={index} onClick={goLink}>
