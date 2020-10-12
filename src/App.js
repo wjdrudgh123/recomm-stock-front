@@ -11,9 +11,8 @@ class App extends React.Component {
 
   getLists = async () => {
     console.log("start");
-    console.log(`${process.env.REACT_APP_IP}/data`);
     const { data } = await axios.get(
-      `http://${process.env.REACT_APP_IP}/data`,
+      `https://${process.env.REACT_APP_IP}/data`,
       {
         timeout: 300000,
         withCredentials: "include",
