@@ -1,11 +1,11 @@
 import React from "react";
 
 const pop = (event) => {
-  const ul = event.target.nextSibling;
   let title = event.target;
   if (title.tagName === "H3") {
     title = title.parentNode;
   }
+  const ul = title.nextSibling;
   if (ul.className.indexOf("on") !== -1) {
     ul.className = "company__news";
     title.className = "company__title";
@@ -16,8 +16,6 @@ const pop = (event) => {
 };
 
 const Companies = ({ name, news }) => {
-  console.log(name);
-  console.log(news);
   return (
     <div className="companies">
       <div className="companies__company">
