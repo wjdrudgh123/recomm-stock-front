@@ -2,7 +2,10 @@ import React from "react";
 
 const pop = (event) => {
   const ul = event.target.nextSibling;
-  const title = event.target;
+  let title = event.target;
+  if (title.tagName === "H3") {
+    title = title.target.parentNode;
+  }
   if (ul.className.indexOf("on") !== -1) {
     ul.className = "company__news";
     title.className = "company__title";
@@ -27,7 +30,7 @@ const Companies = ({ name, news }) => {
             const splitLink = link.split("/");
             const getNewWord = splitLink[4].split("#");
             const newsLink = `${getNewWord[0]}/${getNewWord[1]}/${splitLink[5]}/${splitLink[6]}`;
-            console.log(`http://m.finance.daum.net/quotes/${newsLink}`);
+
             const goLink = () => {
               document.location.href = `http://m.finance.daum.net/quotes/${newsLink}`;
             };
