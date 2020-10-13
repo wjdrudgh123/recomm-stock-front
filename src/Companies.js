@@ -4,7 +4,7 @@ const pop = (event) => {
   const ul = event.target.nextSibling;
   let title = event.target;
   if (title.tagName === "H3") {
-    title = title.target.parentNode;
+    title = title.parentNode;
   }
   if (ul.className.indexOf("on") !== -1) {
     ul.className = "company__news";
