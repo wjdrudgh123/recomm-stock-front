@@ -15,15 +15,23 @@ const pop = (event) => {
   }
 };
 
-const Companies = ({ name, news }) => {
+const Companies = ({ name, boxPrice }) => {
+  const { firstBox, secBox } = boxPrice;
   return (
     <div className="companies">
       <div className="companies__company">
-        <div className="company__title" onClick={pop}>
+        <div className="company__title">
           <h3>{name}</h3>
-          <i className="icon"></i>
+          <ul>
+            <li>
+              <span>1차: {`${firstBox[0]} ~ ${firstBox[1]}`}</span>
+            </li>
+            <li>
+              <span>2차: {`${secBox[0]} ~ ${secBox[1]}`}</span>
+            </li>
+          </ul>
         </div>
-        <ul className="company__news">
+        {/* <ul className="company__news">
           {news.map(({ title, description, link }, index) => {
             const splitLink = link.split("/");
             const getNewWord = splitLink[4].split("#");
@@ -39,7 +47,7 @@ const Companies = ({ name, news }) => {
               </li>
             );
           })}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );
