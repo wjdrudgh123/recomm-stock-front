@@ -75,12 +75,11 @@ class App extends React.Component {
                 })}
               </div>
               <div className="bottom_layout">
-                {companies.map(({ companyName, news }, key) => {
-                  if (companyName === targetCompany) {
+                {companies
+                  .filter(({ companyName }) => companyName === targetCompany)
+                  .map(({ news }, key) => {
                     return <News name={targetCompany} news={news} key={key} />;
-                  }
-                  return;
-                })}
+                  })}
               </div>
             </div>
           </>
