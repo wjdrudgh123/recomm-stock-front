@@ -35,9 +35,14 @@ class App extends React.Component {
           </div>
         ) : (
           <>
-            {companies.map(({ companyName, boxPrice }, index) => {
+            {companies.map(({ companyName, boxPrice, news }, index) => {
               return (
-                <Companies name={companyName} boxPrice={boxPrice} key={index} />
+                <Companies
+                  name={companyName}
+                  boxPrice={boxPrice}
+                  news={news}
+                  key={index}
+                />
               );
             })}
           </>

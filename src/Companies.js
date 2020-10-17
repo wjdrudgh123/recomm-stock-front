@@ -1,22 +1,20 @@
 import React from "react";
 
 const pop = (event) => {
-  let title = event.target;
-  if (title.tagName === "H3") {
-    title = title.parentNode;
-  }
-  const ul = title.nextSibling;
-  if (ul.className.indexOf("on") !== -1) {
+  const allow = event.target;
+  const ul = allow.nextSibling;
+  if (allow.innerText === "∧") {
+    allow.innerText = "∨";
     ul.className = "company__news";
-    title.className = "company__title";
-  } else {
-    ul.className = "company__news on";
-    title.className = "company__title click";
+  } else if (allow.innerText === "∨") {
+    allow.innerText = "∧";
+    ul.className += "on";
   }
 };
 
-const Companies = ({ name, boxPrice }) => {
+const Companies = ({ name, boxPrice, news }) => {
   const { firstBox, secBox } = boxPrice;
+
   return (
     <div className="companies">
       <div className="companies__company">
@@ -31,26 +29,37 @@ const Companies = ({ name, boxPrice }) => {
             </li>
           </ul>
         </div>
-        {/* <ul className="company__news">
-          {news.map(({ title, description, link }, index) => {
-            const splitLink = link.split("/");
-            const getNewWord = splitLink[4].split("#");
-            const newsLink = `${getNewWord[0]}/${getNewWord[1]}/${splitLink[5]}/${splitLink[6]}`;
-
-            const goLink = () => {
-              document.location.href = `http://m.finance.daum.net/quotes/${newsLink}`;
-            };
-            return (
-              <li className="news" key={index} onClick={goLink}>
-                <h4>{title}</h4>
-                <p>{description}</p>
-              </li>
-            );
-          })}
-        </ul> */}
+        <div className="company__news_allow" onClick={pop}>
+          ∨
+        </div>
+        <ul className="company__news">
+          {news.length === 0 ? (
+            <li>
+              <div>뉴스 없음</div>
+            </li>
+          ) : (
+            news.map(({ newsTitle, newsLink }, index) => {
+              const splitLink = newsLink.split("/");
+              const splitUrl_1 = splitLink[splitLink.length - 1].split("=");
+              const newsCode = splitUrl_1[1].split("&");
+              const officeCode = splitUrl_1[2].split("&");
+              const itemCode = splitUrl_1[3].split("&");
+              console.log(splitUrl_1);
+              return (
+                <li key={index} className="news">
+                  <a
+                    href={`https://m.stock.naver.com/item/main.nhn#/stocks/${itemCode[0]}/news/${newsCode[0]}/office/${officeCode[0]}`}
+                  >
+                    <h4>{newsTitle}</h4>
+                  </a>
+                </li>
+              );
+            })
+          )}
+        </ul>
       </div>
     </div>
   );
 };
-//
+
 export default Companies;
