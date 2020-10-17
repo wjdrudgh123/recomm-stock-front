@@ -1,61 +1,28 @@
 import React from "react";
 
-const pop = (event) => {
-  const allow = event.target;
-  const ul = allow.nextSibling;
-  if (allow.innerText === "∧") {
-    allow.innerText = "∨";
-    ul.className = "company__news";
-  } else if (allow.innerText === "∨") {
-    allow.innerText = "∧";
-    ul.className += "on";
-  }
-};
-
-const Companies = ({ name, boxPrice, news }) => {
+const Companies = ({ name, boxPrice, handleEvnet }) => {
   const { firstBox, secBox } = boxPrice;
+  const bigBoxReg = String(secBox[1]).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const bigBoxSup = String(secBox[0]).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const smallBoxReg = String(firstBox[1]).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const smallBoxSup = String(firstBox[0]).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
-    <div className="companies">
-      <div className="companies__company">
+    <div className="companies" onClick={handleEvnet}>
+      <div className="companies__company" data-name={name}>
         <div className="company__title">
           <h3>{name}</h3>
-          <ul>
-            <li>
-              <span>1차: {`${firstBox[0]} ~ ${firstBox[1]}`}</span>
-            </li>
-            <li>
-              <span>2차: {`${secBox[0]} ~ ${secBox[1]}`}</span>
-            </li>
-          </ul>
         </div>
-        <div className="company__news_allow" onClick={pop}>
-          ∨
+        <div className="company__box">
+          <div className="box__big_box">
+            <span className="big_box__reg">{smallBoxReg}</span>
+            <div className="box__small_box">
+              <span className="small_box__reg">{smallBoxReg}</span>
+              <span className="small_box__sup">{smallBoxSup}</span>
+            </div>
+            <span className="big_box__sup">{bigBoxSup}</span>
+          </div>
         </div>
-        <ul className="company__news">
-          {news.length === 0 ? (
-            <li>
-              <div>뉴스 없음</div>
-            </li>
-          ) : (
-            news.map(({ newsTitle, newsLink }, index) => {
-              const splitLink = newsLink.split("/");
-              const splitUrl_1 = splitLink[splitLink.length - 1].split("=");
-              const newsCode = splitUrl_1[1].split("&");
-              const officeCode = splitUrl_1[2].split("&");
-              const itemCode = splitUrl_1[3].split("&");
-              return (
-                <li key={index} className="news">
-                  <a
-                    href={`https://m.stock.naver.com/item/main.nhn#/stocks/${itemCode[0]}/news/${newsCode[0]}/office/${officeCode[0]}`}
-                  >
-                    <h4>{newsTitle}</h4>
-                  </a>
-                </li>
-              );
-            })
-          )}
-        </ul>
       </div>
     </div>
   );
