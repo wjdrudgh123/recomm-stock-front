@@ -44,7 +44,6 @@ const Companies = ({ name, boxPrice, news }) => {
               const newsCode = splitUrl_1[1].split("&");
               const officeCode = splitUrl_1[2].split("&");
               const itemCode = splitUrl_1[3].split("&");
-              console.log(splitUrl_1);
               return (
                 <li key={index} className="news">
                   <a
