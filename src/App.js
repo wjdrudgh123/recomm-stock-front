@@ -12,56 +12,13 @@ class App extends React.Component {
   };
 
   getLists = async () => {
-    console.log("start");
-    // const { data } = await axios.get(
-    //   `https://${process.env.REACT_APP_IP}/data`,
-    //   {
-    //     timeout: 300000,
-    //     withCredentials: "include",
-    //   }
-    // );
-
-    const data = [
+    const { data } = await axios.get(
+      `https://${process.env.REACT_APP_IP}/data`,
       {
-        companyName: "양지사",
-        boxPrice: {
-          firstBox: [9256, 9977],
-          secBox: [9025, 10232],
-        },
-        news: [],
-      },
-      {
-        companyName: "신화실업",
-        boxPrice: {
-          firstBox: [19446, 21142],
-          secBox: [19128, 21494],
-        },
-        news: [],
-      },
-      {
-        companyName: "현대제철",
-        boxPrice: {
-          firstBox: [27170, 28723],
-          secBox: [25987, 30030],
-        },
-        news: [
-          {
-            newsTitle:
-              "`철강주의 부활`(?) US스틸·현대제철 이달 20%↑…원자재 철광석 ...",
-            newsLink:
-              "https://finance.naver.com/item/news_read.nhn?article_id=0004675835&office_id=009&code=004020&page=&sm=title_entity_id.basic",
-          },
-        ],
-      },
-      {
-        companyName: "디지탈옵틱",
-        boxPrice: {
-          firstBox: [733, 732],
-          secBox: [662, 811],
-        },
-        news: [],
-      },
-    ];
+        timeout: 300000,
+        withCredentials: "include",
+      }
+    );
     const initNews = data[0].companyName;
     this.setState({
       isLoading: false,

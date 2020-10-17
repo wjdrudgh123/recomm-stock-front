@@ -2,13 +2,12 @@ import React from "react";
 import "./News.css";
 
 const News = ({ name, news }) => {
-  console.log(name);
   return (
     <>
       <h4 className="news__header">※ 종목 뉴스</h4>
       <div className="news__body">
         {news.length === 0 ? (
-          <div className="news__empty">뉴스 없음</div>
+          <div className="news__empty">{name} 뉴스 없음</div>
         ) : (
           <ul>
             {news.map(({ newsTitle, newsLink }, index) => {

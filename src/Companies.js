@@ -15,7 +15,7 @@ const Companies = ({ name, boxPrice, handleEvnet }) => {
         </div>
         <div className="company__box">
           <div className="box__big_box">
-            <span className="big_box__reg">{smallBoxReg}</span>
+            <span className="big_box__reg">{bigBoxReg}</span>
             <div className="box__small_box">
               <span className="small_box__reg">{smallBoxReg}</span>
               <span className="small_box__sup">{smallBoxSup}</span>
