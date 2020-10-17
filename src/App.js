@@ -79,6 +79,7 @@ class App extends React.Component {
                   if (companyName === targetCompany) {
                     return <News name={targetCompany} news={news} key={key} />;
                   }
+                  return;
                 })}
               </div>
             </div>
