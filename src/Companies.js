@@ -10,8 +10,6 @@ const Companies = ({ name, lowPrice }) => {
           <h3>{name}</h3>
         </div>
         <div className="company__box">
-          <span className="box__check_1"></span>
-          <span className="box__check_2"></span>
           <h4 className="supportPrice">{supportPrice}</h4>
         </div>
       </div>
