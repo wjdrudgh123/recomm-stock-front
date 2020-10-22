@@ -9,12 +9,14 @@ class App extends React.Component {
     companies: [],
     targetCompany: "",
   };
-  //`https://${process.env.REACT_APP_IP}
   getLists = async () => {
-    const { data } = await axios.get(`http://localhost:4000/data`, {
-      timeout: 300000,
-      withCredentials: "include",
-    });
+    const { data } = await axios.get(
+      `https://${process.env.REACT_APP_IP}/data`,
+      {
+        timeout: 300000,
+        withCredentials: "include",
+      }
+    );
     console.log(data);
     this.setState({
       isLoading: false,
