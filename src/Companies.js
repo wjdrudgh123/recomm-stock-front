@@ -1,7 +1,14 @@
 import React from "react";
 
-const Companies = ({ name, lowPrice }) => {
-  const supportPrice = String(lowPrice).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const Companies = ({ name, lastLow, firstLow }) => {
+  const lastSupportPrice = String(lastLow).replace(
+    /\B(?=(\d{3})+(?!\d))/g,
+    ","
+  );
+  const firstSupportPrice = String(firstLow).replace(
+    /\B(?=(\d{3})+(?!\d))/g,
+    ","
+  );
 
   return (
     <div className="companies">
@@ -10,7 +17,17 @@ const Companies = ({ name, lowPrice }) => {
           <h3>{name}</h3>
         </div>
         <div className="company__box">
-          <h4 className="supportPrice">{supportPrice}</h4>
+          <div className="supportPrice">
+            <i class="fas fa-long-arrow-alt-down down_arrow"></i>
+            <i class="fas fa-long-arrow-alt-up up_arrow"></i>
+
+            {firstSupportPrice}
+          </div>
+          <div className="supportPrice">
+            <i class="fas fa-long-arrow-alt-down down_arrow"></i>
+            <i class="fas fa-long-arrow-alt-up up_arrow"></i>
+            {lastSupportPrice}
+          </div>
         </div>
       </div>
     </div>

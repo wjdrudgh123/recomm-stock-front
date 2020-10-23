@@ -41,9 +41,14 @@ class App extends React.Component {
           <>
             <div className="App layout">
               <div className="content">
-                {companies.map(({ name, lowPrice }, index) => {
+                {companies.map(({ name, lowPrice, todayLow }, index) => {
                   return (
-                    <Companies name={name} lowPrice={lowPrice} key={index} />
+                    <Companies
+                      name={name}
+                      lastLow={lowPrice}
+                      firstLow={todayLow}
+                      key={index}
+                    />
                   );
                 })}
               </div>
