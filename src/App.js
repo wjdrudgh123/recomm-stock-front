@@ -9,11 +9,10 @@ class App extends React.Component {
     isLoading: true,
     companies: [],
   };
-  //https://${process.env.REACT_APP_IP}
   getLists = async () => {
     const {
       data: { company, news },
-    } = await axios.get(`http://localhost:4000/data`, {
+    } = await axios.get(`https://${process.env.REACT_APP_IP}/data`, {
       timeout: 300000,
       withCredentials: "include",
     });
