@@ -26,13 +26,20 @@ body,
 }
 
 .content {
-  height: 100%;
+  max-height: 100%;
+}
+.top_layer {
+  display: flex;
+  height: 40%;
   overflow: auto;
   border-bottom: 1px solid black;
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20px;
   padding: 12px;
+}
+.bottom_layer {
+  height: 60%;
 }
 
 .companies {

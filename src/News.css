@@ -1,16 +1,13 @@
-.bottom_layout {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 .news__header {
-  flex-basis: 48px;
-  height: 100%;
-  padding: 12px 0 0 12px;
+  margin: 12px 0 12px 0;
 }
-.news__body {
-  flex-basis: auto;
-  height: 100%;
+.news__date_field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.news__date_field span {
+  margin: 0 12px 0 12px;
 }
 .news__empty {
   width: 100%;
@@ -20,8 +17,9 @@
   justify-content: center;
 }
 .news__body {
-  padding: 12px 0 0 0;
   overflow: auto;
+  max-height: 500px;
+  padding: 12px 0 12px 0;
 }
 
 .news {

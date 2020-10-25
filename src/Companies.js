@@ -18,14 +18,14 @@ const Companies = ({ name, lastLow, firstLow }) => {
         </div>
         <div className="company__box">
           <div className="supportPrice">
-            <i class="fas fa-long-arrow-alt-down down_arrow"></i>
-            <i class="fas fa-long-arrow-alt-up up_arrow"></i>
+            <i className="fas fa-long-arrow-alt-down down_arrow"></i>
+            <i className="fas fa-long-arrow-alt-up up_arrow"></i>
 
             {firstSupportPrice}
           </div>
           <div className="supportPrice">
-            <i class="fas fa-long-arrow-alt-down down_arrow"></i>
-            <i class="fas fa-long-arrow-alt-up up_arrow"></i>
+            <i className="fas fa-long-arrow-alt-down down_arrow"></i>
+            <i className="fas fa-long-arrow-alt-up up_arrow"></i>
             {lastSupportPrice}
           </div>
         </div>
