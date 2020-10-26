@@ -1,12 +1,7 @@
 import React from "react";
 import Home from "../routes/home/Home";
 import News from "../routes/news/News";
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./Footer";
 
 const AppRouter = ({ companies, realTime, news, newsFlag, moveDate }) => {
