@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Companies from "./Companies";
-import News from "./News";
+import AppRouter from "./AppRouter";
 import "./App.css";
 
 class App extends React.Component {
@@ -9,10 +8,11 @@ class App extends React.Component {
     isLoading: true,
     companies: [],
   };
+  //https://${process.env.REACT_APP_IP}
   getLists = async () => {
     const {
-      data: { company, news },
-    } = await axios.get(`https://${process.env.REACT_APP_IP}/data`, {
+      data: { company, news, realTime },
+    } = await axios.get(`http://localhost:4000/data`, {
       timeout: 300000,
       withCredentials: "include",
     });
@@ -20,7 +20,7 @@ class App extends React.Component {
       isLoading: false,
       companies: company,
       weeksNews: news,
-      news: news[0],
+      realTime: realTime,
       newsFlag: 0,
     });
   };
@@ -63,7 +63,8 @@ class App extends React.Component {
   };
 
   render() {
-    const { isLoading, companies, news } = this.state;
+    const { isLoading, companies, weeksNews, realTime, newsFlag } = this.state;
+
     return (
       <div className="App">
         {isLoading ? (
@@ -73,27 +74,13 @@ class App extends React.Component {
         ) : (
           <>
             <div className="App layout">
-              <div className="content">
-                <div className="top_layer">
-                  {companies.map(({ name, lowPrice, todayLow }, index) => {
-                    return (
-                      <Companies
-                        name={name}
-                        lastLow={lowPrice}
-                        firstLow={todayLow}
-                        key={index}
-                      />
-                    );
-                  })}
-                </div>
-                <div className="bottom_layer">
-                  <News
-                    date={news.date}
-                    news={news.news}
-                    moveDate={this.handleMoveDate}
-                  />
-                </div>
-              </div>
+              <AppRouter
+                companies={companies}
+                realTime={realTime}
+                news={weeksNews}
+                newsFlag={newsFlag}
+                moveDate={this.handleMoveDate}
+              />
             </div>
           </>
         )}

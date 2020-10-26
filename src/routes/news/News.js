@@ -1,9 +1,9 @@
 import React from "react";
 import "./News.css";
 
-const News = ({ date, news, moveDate }) => {
+const News = ({ nextWeekSchedule: { date, news }, moveDate }) => {
   return (
-    <>
+    <div className="nextweeks_news">
       <div className="news__date_field">
         <span>
           <i
@@ -37,7 +37,7 @@ const News = ({ date, news, moveDate }) => {
           </ul>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

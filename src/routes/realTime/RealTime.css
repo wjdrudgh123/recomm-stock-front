@@ -1,0 +1,30 @@
+.real_search {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 65px;
+  height: 100%;
+}
+.real_search h2 {
+  position: absolute;
+  top: -45px;
+  left: 26px;
+  font-weight: 600;
+}
+.real_search ul li {
+  margin-bottom: 15px;
+}
+.real_search__index {
+  margin-right: 12px;
+}
+.left_layer {
+  height: 100%;
+}
+.right_layer {
+  height: 100%;
+}
+.real_search__standard {
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
