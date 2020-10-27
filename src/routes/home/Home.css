@@ -1,5 +1,5 @@
 .content {
-  max-height: 100%;
+  max-height: calc (100% -50px);
 }
 .top_layer {
   display: flex;
@@ -115,7 +115,7 @@
   position: absolute;
   left: 8px;
   top: 26px;
-  width: 45%;
+  width: 55%;
   height: 0px;
   border: 1px solid black;
 }
@@ -125,7 +125,7 @@
   position: absolute;
   left: 8px;
   top: 72px;
-  width: 45%;
+  width: 55%;
   height: 0px;
   border: 1px solid black;
 }
