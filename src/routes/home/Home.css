@@ -1,48 +1,51 @@
 .content {
-  max-height: calc (100% -50px);
+  height: calc(100% - 50px);
 }
 .top_layer {
   display: flex;
   height: 50%;
   overflow: auto;
   border-bottom: 1px solid black;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 20px;
   padding: 12px;
+  flex-direction: column;
 }
 .bottom_layer {
-  height: 50%;
+  height: calc(50% - 80px);
   position: relative;
 }
 
 .companies {
-  width: 200px;
+  width: 150px;
   height: 250px;
   margin: 22px;
   border: 1px solid black;
   border-radius: 25px;
 }
+.top_layer__companies {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  overflow: auto;
+  flex-wrap: wrap;
+}
 
-@media (max-width: 1024) {
-  .top_layout {
-    max-height: 40%;
+@media screen and (min-width: 650px) {
+  .top_layer {
+    display: flex;
+    height: 50%;
     overflow: auto;
     border-bottom: 1px solid black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20px;
     padding: 12px;
   }
-  .bottom_layout {
-    max-height: 60%;
+  .top_layer__companies {
+    display: flex;
     overflow: auto;
-  }
-  .companies {
-    width: 150px;
-    height: 180px;
-    margin: 10px;
-    border: 1px solid black;
+    width: 100%;
   }
   .down_arrow {
     transform: translate(-64px, -8px) rotate(-45deg);
@@ -59,7 +62,7 @@
     position: absolute;
     left: 8px;
     top: 25px;
-    width: 60%;
+    width: 45%;
     height: 0px;
     border: 1px solid black;
   }
@@ -69,7 +72,7 @@
     position: absolute;
     left: 8px;
     top: 72px;
-    width: 60%;
+    width: 45%;
     height: 0px;
     border: 1px solid black;
   }
@@ -115,7 +118,7 @@
   position: absolute;
   left: 8px;
   top: 26px;
-  width: 55%;
+  width: 40%;
   height: 0px;
   border: 1px solid black;
 }
@@ -125,7 +128,26 @@
   position: absolute;
   left: 8px;
   top: 72px;
-  width: 55%;
+  width: 40%;
   height: 0px;
   border: 1px solid black;
+}
+.title h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  margin-left: 30px;
+}
+.notice {
+  margin-left: 30px;
+}
+.notice h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: red;
+  margin-bottom: 12px;
+}
+.notice ul li {
+  margin-bottom: 12px;
+  font-size: 12px;
 }

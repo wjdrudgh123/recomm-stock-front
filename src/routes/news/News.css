@@ -1,5 +1,5 @@
 .nextweeks_news {
-  height: 100%;
+  height: calc(100% - 50px);
   display: flex;
   flex-direction: column;
 }
@@ -24,7 +24,7 @@
 }
 .news__body {
   overflow: auto;
-  height: 85%;
+  height: 100%;
 }
 
 .news {
