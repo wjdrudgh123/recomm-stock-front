@@ -17,9 +17,9 @@
 }
 
 .companies {
-  width: 150px;
+  width: 120px;
   height: 100px;
-  margin: 22px;
+  margin: 20px;
   border: 1px solid black;
   border-radius: 25px;
 }
