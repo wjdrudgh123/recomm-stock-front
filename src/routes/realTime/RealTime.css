@@ -16,12 +16,14 @@
 .real_search__index {
   margin-right: 12px;
 }
-.left_layer {
+.real_search__layer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  overflow: auto;
   height: 100%;
 }
-.right_layer {
-  height: 100%;
-}
+
 .real_search__standard {
   margin-bottom: 26px;
   display: flex;

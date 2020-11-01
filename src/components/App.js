@@ -8,7 +8,6 @@ class App extends React.Component {
     isLoading: true,
     companies: [],
   };
-
   getLists = async () => {
     const {
       data: { company, news, realTime },
