@@ -2,12 +2,8 @@ import React from "react";
 
 const Companies = ({ name }) => {
   return (
-    <div className="companies">
-      <div className="companies__company">
-        <div className="company__title">
-          <h3>{name}</h3>
-        </div>
-      </div>
+    <div className="company">
+      <h3 className="company__title">{name}</h3>
     </div>
   );
 };

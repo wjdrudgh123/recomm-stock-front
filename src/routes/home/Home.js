@@ -1,9 +1,19 @@
 import React from "react";
 import Companies from "../Companies";
 import RealTime from "../realTime/RealTime";
+import Slider from "react-slick";
 import "./Home.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const Home = ({ companies, realTime }) => {
+const Home = ({ companies, realTime, moveSlide }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  };
   return (
     <div className="content">
       <div className="top_layer">
@@ -20,16 +30,20 @@ const Home = ({ companies, realTime }) => {
           </div>
         </div>
         <div className="top_layer__companies">
-          {companies.map(({ name, lowPrice, todayLow }, index) => {
-            return (
-              <Companies
-                name={name}
-                lastLow={lowPrice}
-                firstLow={todayLow}
-                key={index}
-              />
-            );
-          })}
+          <div className="companies__company">
+            <Slider {...settings}>
+              {companies.map(({ name, lowPrice, todayLow }, index) => {
+                return (
+                  <Companies
+                    name={name}
+                    lastLow={lowPrice}
+                    firstLow={todayLow}
+                    key={index}
+                  />
+                );
+              })}
+            </Slider>
+          </div>
         </div>
       </div>
       <div className="bottom_layer">
