@@ -1,22 +1,23 @@
 import React from "react";
-import Home from "../routes/home/Home";
-import News from "../routes/news/News";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Footer from "./Footer";
+import Nav from "./header/Nav";
+import Rss from "../routes/rss/Rss";
+import Home from "../routes/home/Home";
 
-const AppRouter = ({ companies, realTime, news, newsFlag, moveDate }) => {
-  console.log(news[newsFlag]);
+const AppRouter = () => {
   return (
     <Router>
+      <Nav />
       <Switch>
         <Route exact path="/">
-          <Home companies={companies} realTime={realTime} />
-        </Route>
-        <Route exact path="/nextWeeks">
-          <News nextWeekSchedule={news[newsFlag]} moveDate={moveDate} />
+          <Home />
         </Route>
       </Switch>
-      <Footer />
+      <Switch>
+        <Route exact path="/rss">
+          <Rss />
+        </Route>
+      </Switch>
     </Router>
   );
 };

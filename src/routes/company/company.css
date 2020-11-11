@@ -1,0 +1,17 @@
+.companie {
+  width: 250px;
+}
+
+.company {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.company__title {
+  font-size: 32px;
+  background-color: burlywood;
+  padding: 50px 150px;
+}

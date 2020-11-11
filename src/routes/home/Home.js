@@ -1,12 +1,35 @@
-import React from "react";
-import Companies from "../Companies";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Company from "../company/Company";
 import RealTime from "../realTime/RealTime";
 import Slider from "react-slick";
 import "./Home.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Home = ({ companies, realTime, moveSlide }) => {
+const Home = () => {
+  const [state, setState] = useState({
+    loading: true,
+    companies: [],
+    error: null,
+  });
+
+  useEffect(() => {
+    axios("http://localhost:4000/data")
+      .then(({ data: { company } }) => {
+        setState({
+          loading: false,
+          companies: company,
+        });
+      })
+      .catch((error) => {
+        setState({
+          loading: false,
+          error: error,
+        });
+      });
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -14,40 +37,23 @@ const Home = ({ companies, realTime, moveSlide }) => {
     slidesToShow: 2,
     slidesToScroll: 1,
   };
+
   return (
     <div className="content">
-      <div className="top_layer">
-        <div className="title">
-          <h2>관심 종목</h2>
-          <div className="notice">
-            <h3>&#8251; 주의</h3>
-            <ul>
-              <li>주관적인 관심 종목일 뿐, 주식 매매 참고자료입니다.</li>
-              <li>
-                <strong>주식 매매의 책임은 본인에게 있습니다.</strong>
-              </li>
-            </ul>
-          </div>
+      <div className="inner-width">
+        <div className="interest-companies">
+          <h3>관심 종목</h3>
+          <Slider {...settings}>
+            {state.loading ? (
+              <div className="loading"></div>
+            ) : (
+              state.companies.map(({ name }, index) => {
+                return <Company companyName={name} key={index} />;
+              })
+            )}
+            <Company />
+          </Slider>
         </div>
-        <div className="top_layer__companies">
-          <div className="companies__company">
-            <Slider {...settings}>
-              {companies.map(({ name, lowPrice, todayLow }, index) => {
-                return (
-                  <Companies
-                    name={name}
-                    lastLow={lowPrice}
-                    firstLow={todayLow}
-                    key={index}
-                  />
-                );
-              })}
-            </Slider>
-          </div>
-        </div>
-      </div>
-      <div className="bottom_layer">
-        <RealTime realTime={realTime} />
       </div>
     </div>
   );

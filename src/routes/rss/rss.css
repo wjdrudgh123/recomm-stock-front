@@ -1,0 +1,58 @@
+.rss-body {
+  margin-top: 100px;
+  position: relative;
+}
+
+.editors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.headline {
+  position: relative;
+  padding: 22px 12px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.rss-dialog_header {
+  display: none;
+  margin-left: 22px;
+  position: absolute;
+  top: 43px;
+  z-index: 900;
+}
+
+.rss-dialog_header i {
+  font-size: 35px;
+}
+
+.rss-dialog {
+  display: none;
+  position: absolute;
+  top: 40px;
+  padding: 0 12px;
+}
+
+.rss-dialog_title {
+  margin-bottom: 32px;
+  margin-left: 80px;
+  font-size: 22px;
+}
+
+.rss-dialog_description {
+  letter-spacing: 2px;
+  line-height: 28px;
+}
+
+.on {
+  display: block;
+}
+
+.off {
+  display: none;
+}
