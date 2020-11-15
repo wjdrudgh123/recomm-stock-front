@@ -8,6 +8,13 @@
   padding: 22px 0;
 }
 
+.interest-companies > h4 {
+  margin-bottom: 22px;
+}
+.interest-companies > h4 > span {
+  color: red;
+}
+
 .real-time {
   margin-top: 50px;
   position: relative;

@@ -19,6 +19,9 @@ const Home = ({ company, realTime }) => {
       <div className="inner-width">
         <div className="interest-companies">
           <h3>관심 종목</h3>
+          <h4>
+            <span>주의!</span>&nbsp;모든 매매의 책임은 본인한테 있슴
+          </h4>
           <Slider {...settings}>
             {company.map(({ name }, index) => {
               return <Company name={name} key={index} />;

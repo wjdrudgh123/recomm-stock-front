@@ -14,7 +14,7 @@ const RealTime = ({ realTime }) => {
         <>
           <div className="notice">
             <h2>인기 검색 종목</h2>
-            <h3>({curTime}시 10분 기준)</h3>
+            <h3>(10분마다 업뎃)</h3>
           </div>
           <div className="real_search__layer">
             <div className="real_search__site">
