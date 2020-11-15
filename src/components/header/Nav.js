@@ -38,7 +38,7 @@ const Nav = () => {
             Home
           </Link>
           <Link to="/rss" onClick={handleNavClick}>
-            헤드라인
+            경제뉴스
           </Link>
           <Link to="/sche" onClick={handleNavClick}>
             증시스케쥴

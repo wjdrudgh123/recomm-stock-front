@@ -2,8 +2,6 @@ import React from "react";
 import "./RealTime.css";
 
 const RealTime = ({ realTime }) => {
-  const d = new Date();
-  const curTime = d.getHours();
   return (
     <div className="real_search">
       {realTime === "timeout" ? (
