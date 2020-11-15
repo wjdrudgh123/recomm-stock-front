@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Company from "../company/Company";
 import RealTime from "../realTime/RealTime";
 import Slider from "react-slick";
