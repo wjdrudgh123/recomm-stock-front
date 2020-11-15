@@ -1,3 +1,7 @@
+.schedule {
+  margin-top: 100px;
+}
+
 .nextweeks_news {
   height: calc(100% - 50px);
   display: flex;

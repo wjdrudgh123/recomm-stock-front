@@ -7,52 +7,28 @@ import "./Home.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Home = () => {
-  const [state, setState] = useState({
-    loading: true,
-    companies: [],
-    error: null,
-  });
-
-  useEffect(() => {
-    axios("http://localhost:4000/data")
-      .then(({ data: { company } }) => {
-        setState({
-          loading: false,
-          companies: company,
-        });
-      })
-      .catch((error) => {
-        setState({
-          loading: false,
-          error: error,
-        });
-      });
-  }, []);
-
+const Home = ({ company, realTime }) => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
   };
-
   return (
     <div className="content">
       <div className="inner-width">
         <div className="interest-companies">
           <h3>관심 종목</h3>
           <Slider {...settings}>
-            {state.loading ? (
-              <div className="loading"></div>
-            ) : (
-              state.companies.map(({ name }, index) => {
-                return <Company companyName={name} key={index} />;
-              })
-            )}
-            <Company />
+            {company.map(({ name }, index) => {
+              return <Company name={name} key={index} />;
+            })}
           </Slider>
+        </div>
+
+        <div className="real-time">
+          <RealTime realTime={realTime} />
         </div>
       </div>
     </div>

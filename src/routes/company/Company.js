@@ -1,10 +1,10 @@
 import React from "react";
 import "./company.css";
 
-const Company = ({ companyName }) => {
+const Company = ({ name }) => {
   return (
     <div className="company">
-      <h3 className="company__title">{companyName}</h3>
+      <span className="company-name">{name}</span>
     </div>
   );
 };

@@ -40,7 +40,7 @@ const Nav = () => {
           <Link to="/rss" onClick={handleNavClick}>
             헤드라인
           </Link>
-          <Link to="/#" onClick={handleNavClick}>
+          <Link to="/sche" onClick={handleNavClick}>
             증시스케쥴
           </Link>
         </div>
