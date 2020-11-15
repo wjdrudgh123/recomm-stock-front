@@ -98,7 +98,7 @@ const Rss = ({ news, editorName }) => {
           return (
             <div key={i} className="headline">
               <a href={link}>
-                {img !== "" ? <img src={img} /> : <div></div>}
+                {img !== "" ? <img src={img} alt="img" /> : <div></div>}
                 <span className="headline-title">{title}</span>
               </a>
             </div>
