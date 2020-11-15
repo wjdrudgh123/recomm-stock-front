@@ -27,7 +27,11 @@ const RealTime = ({ realTime }) => {
                   return (
                     <li>
                       <span className="real_search__index">{index + 1}.</span>
-                      <span className="real_search__company">{company}</span>
+                      <a
+                        href={`https://news.google.com/search?q=${company}&hl=ko&gl=KR&ceid=KR:ko`}
+                      >
+                        <span className="real_search__company">{company}</span>
+                      </a>
                     </li>
                   );
                 })}
@@ -39,7 +43,11 @@ const RealTime = ({ realTime }) => {
                   return (
                     <li>
                       <span className="real_search__index">{index + 1}.</span>
-                      <span className="real_search__company">{company}</span>
+                      <a
+                        href={`https://news.google.com/search?q=${company}&hl=ko&gl=KR&ceid=KR:ko`}
+                      >
+                        <span className="real_search__company">{company}</span>
+                      </a>
                     </li>
                   );
                 })}

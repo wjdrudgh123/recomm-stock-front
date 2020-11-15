@@ -41,7 +41,8 @@
 }
 
 .real_search ul li {
-  margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .real_search__index {
@@ -55,6 +56,15 @@
   overflow: auto;
   height: 100%;
   margin-top: 50px;
+}
+
+.real_search__layer a {
+  color: black;
+}
+
+.left_layer,
+.right_layer {
+  padding-top: 12px;
 }
 
 .real_search__standard {
