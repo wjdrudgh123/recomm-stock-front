@@ -6,6 +6,7 @@ import Home from "../routes/home/Home";
 import Schedule from "../routes/schedule/Schedule";
 const AppRouter = ({ data: { company, news, realTime, schedule } }) => {
   const editorName = Object.keys(news[0]);
+
   return (
     <Router>
       <Nav />

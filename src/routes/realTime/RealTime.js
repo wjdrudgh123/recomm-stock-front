@@ -23,7 +23,7 @@ const RealTime = ({ realTime }) => {
               <ul>
                 {realTime.naver.map((company, index) => {
                   return (
-                    <li>
+                    <li key={index}>
                       <span className="real_search__index">{index + 1}.</span>
                       <a
                         href={`https://news.google.com/search?q=${company}&hl=ko&gl=KR&ceid=KR:ko`}
@@ -39,7 +39,7 @@ const RealTime = ({ realTime }) => {
               <ul>
                 {realTime.daum.map((company, index) => {
                   return (
-                    <li>
+                    <li key={index}>
                       <span className="real_search__index">{index + 1}.</span>
                       <a
                         href={`https://news.google.com/search?q=${company}&hl=ko&gl=KR&ceid=KR:ko`}

@@ -3,9 +3,13 @@ import "./company.css";
 
 const Company = ({ name }) => {
   return (
-    <div className="company">
-      <span className="company-name">{name}</span>
-    </div>
+    <a
+      href={`https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${name} 관련주`}
+    >
+      <div className="company">
+        <span className="company-name">{name}</span>
+      </div>
+    </a>
   );
 };
 

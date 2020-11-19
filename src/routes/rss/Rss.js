@@ -5,11 +5,10 @@ import "./rss.css";
 const Rss = ({ news, editorName }) => {
   const [rssIndex, setRssIndex] = useState({
     arrIndex: 0,
-    name: String(editorName),
+    name: editorName,
   });
 
   const setEditorName = (beforeName) => {
-    console.log(beforeName);
     let editor = "";
     if (beforeName === "hangyeong") {
       editor = "한국경제";
@@ -34,7 +33,6 @@ const Rss = ({ news, editorName }) => {
       }
 
       const editorName = Object.keys(news[minus]);
-
       setRssIndex({ arrIndex: minus, name: editorName[0] });
     } else if (direction === "right") {
       let plus = rssIndex.arrIndex + 1;

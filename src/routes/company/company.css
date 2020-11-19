@@ -16,6 +16,7 @@
 .company-name {
   font-size: 24px;
   font-weight: 600;
+  color: black;
 }
 
 @media screen and (max-width: 980px) {
@@ -31,5 +32,6 @@
   .company-name {
     font-size: 18px;
     font-weight: 600;
+    color: black;
   }
 }
