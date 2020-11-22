@@ -42,7 +42,7 @@ const RealTime = ({ realTime }) => {
                     <li key={index}>
                       <span className="real_search__index">{index + 1}.</span>
                       <a
-                        href={`https://news.google.com/search?q=${company}&hl=ko&gl=KR&ceid=KR:ko`}
+                        href={`https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${company} 특징주`}
                       >
                         <span className="real_search__company">{company}</span>
                       </a>

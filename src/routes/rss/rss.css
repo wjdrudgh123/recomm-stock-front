@@ -9,10 +9,22 @@
   align-items: center;
 }
 
+header ul {
+  display: flex;
+}
+
 .editors {
-  margin: 18px;
-  font-size: 22px;
-  font-weight: 600;
+  padding: 10px;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+
+.editors:last-child {
+  margin-right: 0;
+}
+
+.editors:hover {
+  cursor: pointer;
 }
 
 .news-contents {
