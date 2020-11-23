@@ -10,8 +10,8 @@ class App extends React.Component {
 
   initFunc = async () => {
     const { data } = await axios.get(
-      `https://${process.env.REACT_APP_IP}/data`
-      //`http://localhost:4000/data`
+      //`https://${process.env.REACT_APP_IP}/data`
+      `http://localhost:4000/data`
     );
 
     this.setState({
@@ -28,7 +28,17 @@ class App extends React.Component {
     const { isLoading, data } = this.state;
     return (
       <div className="App">
-        {isLoading ? <div>Loading...</div> : <AppRouter data={data} />}
+        {isLoading ? (
+          <div className="loading-box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : (
+          <AppRouter data={data} />
+        )}
       </div>
     );
   }

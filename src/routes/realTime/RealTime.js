@@ -2,11 +2,16 @@ import React from "react";
 import "./RealTime.css";
 
 const RealTime = ({ realTime }) => {
+  console.log(realTime.naver);
   return (
     <div className="real_search">
-      {realTime === "timeout" ? (
-        <div className="">
-          <span className="">아침 7시부터 저녁 7시까지 검색어가 나옵니다.</span>
+      {realTime.naver === undefined ? (
+        <div className="loading-box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       ) : (
         <>

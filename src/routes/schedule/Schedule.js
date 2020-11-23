@@ -26,7 +26,13 @@ const Schedule = ({ schedule }) => {
     <div className="schedule">
       <div className="inner-width">
         {schedule.length === 0 ? (
-          <div>Loading...</div>
+          <div className="loading-box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         ) : (
           <div className="schedule-content">
             <div className="nextweeks_news">
