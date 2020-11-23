@@ -10,8 +10,8 @@ class App extends React.Component {
 
   initFunc = async () => {
     const { data } = await axios.get(
-      //`https://${process.env.REACT_APP_IP}/data`
-      `http://localhost:4000/data`
+      `https://${process.env.REACT_APP_IP}/data`
+      //`http://localhost:4000/data`
     );
 
     this.setState({
