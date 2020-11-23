@@ -64,6 +64,15 @@ header ul {
   margin-bottom: 20px;
 }
 
+.no-news {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 100px);
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+}
+
 @media screen and (max-width: 980px) {
   .headline {
     position: relative;

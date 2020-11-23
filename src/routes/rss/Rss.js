@@ -53,6 +53,8 @@ const Rss = ({ news, editorName }) => {
       if (editor === name[0]) {
         index = i;
         break;
+      } else {
+        index = -1;
       }
     }
     setRssIndex({ arrIndex: index, name: editor });
@@ -93,55 +95,59 @@ const Rss = ({ news, editorName }) => {
       </header>
 
       <div className="news-contents">
-        {news[rssIndex.arrIndex][rssIndex.name].map((news, i) => {
-          const editor = rssIndex.name;
-          const title = news.title["_cdata"];
-          let link = news.link["_text"];
-          let img = "";
-          if (editor === "hangyeong") {
-            try {
-              img = news["image"]["_cdata"];
-            } catch (e) {
-              console.log(`E: hangyeong no Img: ${e}`);
-            }
-          } else if (editor === "chosun") {
-            try {
-              const description = news["description"]["_cdata"];
-              const arr = description.split(">");
-              if (arr.length === 8) {
-                const tmp = arr[3].split("<");
-                const tmp2 = tmp[1].split('"');
-                img = tmp2[1];
+        {rssIndex.arrIndex === -1 ? (
+          <div>뉴스 없슴</div>
+        ) : (
+          news[rssIndex.arrIndex][rssIndex.name].map((news, i) => {
+            const editor = rssIndex.name;
+            const title = news.title["_cdata"];
+            let link = news.link["_text"];
+            let img = "";
+            if (editor === "hangyeong") {
+              try {
+                img = news["image"]["_cdata"];
+              } catch (e) {
+                console.log(`E: hangyeong no Img: ${e}`);
               }
-            } catch (e) {
-              console.log(`E: chosun no Img: ${e}`);
-            }
-          } else if (editor === "yonhap") {
-          } else if (editor === "donga") {
-            try {
-              const description = news["description"]["_cdata"];
-              const arr = description.split("<");
+            } else if (editor === "chosun") {
+              try {
+                const description = news["description"]["_cdata"];
+                const arr = description.split(">");
+                if (arr.length === 8) {
+                  const tmp = arr[3].split("<");
+                  const tmp2 = tmp[1].split('"');
+                  img = tmp2[1];
+                }
+              } catch (e) {
+                console.log(`E: chosun no Img: ${e}`);
+              }
+            } else if (editor === "yonhap") {
+            } else if (editor === "donga") {
+              try {
+                const description = news["description"]["_cdata"];
+                const arr = description.split("<");
 
-              if (arr.length === 2) {
-                const tmp2 = arr[1].split("'");
-                img = tmp2[1];
+                if (arr.length === 2) {
+                  const tmp2 = arr[1].split("'");
+                  img = tmp2[1];
+                }
+              } catch (e) {
+                console.log(`E: donga no Img: ${e}`);
               }
-            } catch (e) {
-              console.log(`E: donga no Img: ${e}`);
             }
-          }
-          if (link === undefined) {
-            link = news.link["_cdata"];
-          }
-          return (
-            <div key={i} className="headline">
-              <a href={link}>
-                {img !== "" ? <img src={img} alt="img" /> : <div></div>}
-                <span className="headline-title">{title}</span>
-              </a>
-            </div>
-          );
-        })}
+            if (link === undefined) {
+              link = news.link["_cdata"];
+            }
+            return (
+              <div key={i} className="headline">
+                <a href={link}>
+                  {img !== "" ? <img src={img} alt="img" /> : <div></div>}
+                  <span className="headline-title">{title}</span>
+                </a>
+              </div>
+            );
+          })
+        )}
       </div>
     </div>
   );
