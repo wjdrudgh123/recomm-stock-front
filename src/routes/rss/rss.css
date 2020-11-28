@@ -11,12 +11,14 @@
 
 header ul {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .editors {
   padding: 10px;
   border: 1px solid black;
-  margin-right: 10px;
+  margin: 8px;
 }
 
 .editors:last-child {
@@ -91,4 +93,9 @@ header ul {
     height: 80px;
     margin-bottom: 20px;
   }
+}
+
+.onFocus {
+  background-color: burlywood;
+  color: white;
 }

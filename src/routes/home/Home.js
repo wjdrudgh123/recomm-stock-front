@@ -23,8 +23,8 @@ const Home = ({ company, realTime }) => {
             <span>주의!</span>&nbsp;모든 매매의 책임은 본인한테 있슴
           </h4>
           <Slider {...settings}>
-            {company.map(({ name }, index) => {
-              return <Company name={name} key={index} />;
+            {company.map(({ name, code }, index) => {
+              return <Company name={name} code={code} key={index} />;
             })}
           </Slider>
         </div>

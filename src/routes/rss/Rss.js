@@ -57,6 +57,12 @@ const Rss = ({ news, editorName }) => {
         index = -1;
       }
     }
+    const bfFocus = document.querySelector(".onFocus");
+    if (bfFocus !== null) {
+      bfFocus.classList.remove("onFocus");
+    }
+    target.classList.add("onFocus");
+
     setRssIndex({ arrIndex: index, name: editor });
   };
   return (
@@ -89,14 +95,21 @@ const Rss = ({ news, editorName }) => {
             className="editors"
             onClick={handleClickEditor}
           >
-            동아경제
+            동아일보
+          </li>
+          <li
+            data-broad="joongang"
+            className="editors"
+            onClick={handleClickEditor}
+          >
+            중앙일보
           </li>
         </ul>
       </header>
 
       <div className="news-contents">
         {rssIndex.arrIndex === -1 ? (
-          <div>뉴스 없슴</div>
+          <div className="no-news">뉴스 없슴</div>
         ) : (
           news[rssIndex.arrIndex][rssIndex.name].map((news, i) => {
             const editor = rssIndex.name;
@@ -134,6 +147,7 @@ const Rss = ({ news, editorName }) => {
               } catch (e) {
                 console.log(`E: donga no Img: ${e}`);
               }
+            } else if (editor === "joongang") {
             }
             if (link === undefined) {
               link = news.link["_cdata"];
